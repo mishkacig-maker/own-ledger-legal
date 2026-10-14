@@ -21,7 +21,7 @@
 <body>
 
 <h1>Own Ledger — Privacy Policy</h1>
-<p class="muted">Last updated: 29 August 2026</p>
+<p class="muted">Last updated: 14 October 2026</p>
 
 <p>Own Ledger ("the app", "we") is a personal finance tracker. This policy explains
 what data the app handles and how. The short version: <strong>your financial data
@@ -30,30 +30,32 @@ your ledger, and we never sell it.</strong> Optional services are used only for
 the functions described below.</p>
 
 <h2>1. Who we are</h2>
-<p>Own Ledger is developed and operated by the Own Ledger team. For any privacy
+<p>Own Ledger is developed and operated by DRAVEX LLC. For any privacy
 question, contact us at: <strong>dravexllcgroup@gmail.com</strong>.</p>
 
 <h2>2. What data the app handles</h2>
 <ul>
   <li><strong>Your finance data</strong> (transactions, categories, accounts, budgets,
-      goals, notes and receipt files you attach) — stored <strong>encrypted locally on supported iOS and Android devices</strong>. We never
+      goals, notes and receipt files you attach) — stored <strong>encrypted locally on supported iOS and Android devices</strong>. Web browser storage is not encrypted by the app. We never
       receive it.</li>
   <li><strong>Optional cloud backup</strong> — if you enable backup, the app can
       save a backup to a <strong>private folder in your own Google Drive</strong>
       (the hidden <code>appDataFolder</code>). Only the app can read that folder; the app
       cannot see your other Drive files. The backup lives in <em>your</em> Google account,
       not on our servers. Before upload, the ledger and attached files are
-      <strong>end-to-end encrypted on your device</strong> with XChaCha20-Poly1305.
-      The backup can be unlocked only with your backup password or recovery key;
-      we do not possess either key and cannot decrypt the backup.</li>
+      <strong>encrypted on your device before upload</strong> with XChaCha20-Poly1305.
+      To support automatic restore on another device, a separate recovery credential
+      is stored in the same private Drive app folder. We do not receive or store the
+      backup or its recovery credential on our servers.</li>
   <li><strong>Optional Google account info</strong> — no account is required to use the app.
       If you choose to connect Google Drive, we use your email, name, profile picture and
       Google account identifier to show which Drive is connected and access your private
       backup folder. This is processed on your device; we do not store it on our servers.</li>
   <li><strong>Optional AI import key</strong> — if you paste your own Anthropic API key to
-      help parse bank statements, it is stored encrypted locally, excluded from manual and Drive backups, and sent
+      help parse bank statements, it is stored locally (encrypted on supported iOS/Android), excluded from manual and Drive backups, and sent
       <strong>directly from your device to Anthropic</strong> only when you run an AI-assisted
-      import. It never reaches us.</li>
+      import. Each request sends the exact preview you approve: headers and up to three shortened, partially redacted rows, at most 16 KiB. Review the preview for remaining personal information. It never reaches us.</li>
+  <li><strong>Optional usage counters</strong> — disabled by default, stored only on your device for 90 days. They contain daily counts of predefined actions, without amounts, descriptions or identifiers. They are not sent automatically; exporting requires a separate action. Disabling counters deletes them.</li>
   <li><strong>Reminders</strong> — daily reminder notifications are scheduled
       <strong>locally on your device</strong>. No notification data leaves the device.</li>
   <li><strong>Optional subscriptions</strong> — when paid features are enabled, RevenueCat
@@ -64,11 +66,26 @@ question, contact us at: <strong>dravexllcgroup@gmail.com</strong>.</p>
       ledger, transactions and receipt files are not sent to RevenueCat.</li>
 </ul>
 
+<h3>Optional Google Analytics (from version 1.0.1)</h3>
+<p>Google Analytics for Firebase is disabled by default and uses a separate opt-in
+in Settings → Data. Enabling local usage counters does not enable Google Analytics.
+If you opt in, predefined app and subscription interactions, basic device/app
+information, approximate location derived by Google from network information,
+and a pseudonymous app installation identifier are processed by Google and shown
+in our analytics reports. Your ledger, transaction amounts, account/category names,
+notes, files, Google email and raw Google account ID are not sent to Analytics.
+We disable advertising identifiers and personalized advertising. Subscription
+entitlement changes and restored access are not recorded as paid revenue. With your Analytics consent, the Firebase app installation identifier is also shared with RevenueCat to connect subscription lifecycle events with app analytics. Turning Analytics off clears this association for future events.</p>
+<p>Turning Analytics off stops collection and resets the local analytics identifier.
+It does not delete reports already sent to Google. Previously collected information remains subject to the configured Google Analytics retention settings; aggregated reports may remain longer. Google's
+<a href="https://policies.google.com/privacy">Privacy Policy</a> applies.
+Contact us with privacy requests at the address above.</p>
+
 <h2>3. What we do NOT do</h2>
 <ul>
   <li>We do <strong>not</strong> run a backend that stores your financial data.</li>
   <li>We do <strong>not</strong> sell or rent your data.</li>
-  <li>We do <strong>not</strong> include advertising or behavioral tracking SDKs.</li>
+  <li>We do <strong>not</strong> display third-party ads in the app or enable personalized advertising. Optional product analytics is described above.</li>
 </ul>
 
 <h2>4. Third-party services</h2>
@@ -86,16 +103,16 @@ question, contact us at: <strong>dravexllcgroup@gmail.com</strong>.</p>
 
 <h2>5. Permissions</h2>
 <ul>
-  <li><strong>Internet</strong> — for optional Google Drive backup, purchases, and optional Anthropic import.</li>
+  <li><strong>Internet</strong> — for optional Google Drive backup, purchases, optional Anthropic import and Google Analytics when you enable it.</li>
   <li><strong>Notifications</strong> — to send the reminders you enable.</li>
   <li><strong>Google Drive (app data scope)</strong> — access limited to the app's own hidden folder.</li>
 </ul>
 
 <h2>6. Deleting your data</h2>
 <ul>
-  <li>Uninstalling the app removes all local data from your device.</li>
+  <li>Settings → Data → Clear all local data removes the ledger, attachments, local recovery copies, keys and local preferences, and disconnects Google. Uninstall behavior may depend on operating-system backups.</li>
   <li>You can disconnect Google Drive at any time in Settings → Google Drive.</li>
-  <li>You can delete the backup from your Google Drive, or revoke the app's access at
+  <li>Settings → Data offers a separate confirmed action to delete all app backups in the connected Google Drive. Clearing local data does not delete cloud backups or cancel a store subscription. You can also revoke the app's access at
       <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
   <li>We do not operate servers that hold your ledger. If subscriptions are enabled,
       you may request deletion of the pseudonymous RevenueCat customer record by emailing
@@ -111,7 +128,7 @@ question, contact us at: <strong>dravexllcgroup@gmail.com</strong>.</p>
 <hr />
 
 <h1>Own Ledger — Политика конфиденциальности</h1>
-<p class="muted">Обновлено: 29 августа 2026</p>
+<p class="muted">Обновлено: 14 октября 2026</p>
 
 <p>Own Ledger («приложение», «мы») — личный трекер финансов. Кратко:
 <strong>твои финансовые данные остаются на твоём устройстве и в твоём облаке —
@@ -119,28 +136,30 @@ question, contact us at: <strong>dravexllcgroup@gmail.com</strong>.</p>
 Опциональные сервисы используются только для описанных ниже функций.</p>
 
 <h2>1. Кто мы</h2>
-<p>Own Ledger разрабатывает команда Own Ledger. По вопросам конфиденциальности пиши:
+<p>Own Ledger разрабатывает DRAVEX LLC. По вопросам конфиденциальности пиши:
 <strong>dravexllcgroup@gmail.com</strong>.</p>
 
 <h2>2. Какие данные обрабатывает приложение</h2>
 <ul>
   <li><strong>Твои финансовые данные</strong> (операции, категории, счета, бюджеты, цели,
-      заметки и прикреплённые файлы чеков) — хранятся <strong>локально в зашифрованном виде на поддерживаемых iOS и Android устройствах</strong>. Мы их не получаем.</li>
+      заметки и прикреплённые файлы чеков) — хранятся <strong>локально в зашифрованном виде на поддерживаемых iOS и Android устройствах</strong>. Хранилище веб-браузера приложение не шифрует. Мы их не получаем.</li>
   <li><strong>Опциональный облачный бэкап</strong> — если ты включил резервное копирование, приложение
       может сохранять копию в <strong>приватную папку твоего Google Drive</strong>
       (скрытый <code>appDataFolder</code>). Доступ к этой папке есть только у приложения;
       другие твои файлы в Drive оно не видит. Бэкап лежит в <em>твоём</em> аккаунте Google,
       не на наших серверах. Перед загрузкой журнал и прикреплённые файлы
-      <strong>сквозным образом шифруются на устройстве</strong> с помощью XChaCha20-Poly1305.
-      Бэкап можно открыть только паролем резервной копии или recovery key; у нас нет
-      этих ключей, поэтому мы не можем расшифровать бэкап.</li>
+      <strong>шифруются на устройстве до отправки</strong> с помощью XChaCha20-Poly1305.
+      Для автоматического восстановления на другом устройстве отдельный recovery credential
+      хранится в той же закрытой папке приложения в Drive. Мы не получаем и не храним
+      бэкап или его recovery credential на своих серверах.</li>
   <li><strong>Опциональные данные Google-аккаунта</strong> — для работы приложения аккаунт не нужен.
       Если ты сам подключаешь Google Drive, email, имя, фото профиля и Google ID используются
       на устройстве, чтобы показать подключённый Drive и получить доступ к приватной папке
       бэкапа. На наших серверах эти данные не хранятся.</li>
   <li><strong>Опциональный ключ AI-импорта</strong> — если ты вставляешь свой ключ Anthropic
-      для разбора выписок, он хранится локально в зашифрованном виде, не включается в ручные и Drive-бэкапы и отправляется
-      <strong>напрямую с устройства в Anthropic</strong> только при AI-импорте. К нам он не попадает.</li>
+      для разбора выписок, он хранится локально (с шифрованием на поддерживаемых iOS/Android), не включается в ручные и Drive-бэкапы и отправляется
+      <strong>напрямую с устройства в Anthropic</strong> только при AI-импорте. Каждый запрос передаёт подтверждённый тобой предпросмотр: заголовки и до трёх сокращённых строк с частичным скрытием персональных данных, до 16 КиБ. Проверь текст на оставшиеся личные сведения. К нам он не попадает.</li>
+  <li><strong>Опциональные счётчики использования</strong> — выключены по умолчанию, хранятся только на устройстве за 90 дней. Содержат дневные количества заранее определённых действий без сумм, описаний и идентификаторов. Автоматически не отправляются; экспорт требует отдельного действия. Выключение удаляет счётчики.</li>
   <li><strong>Напоминания</strong> — ежедневные уведомления планируются
       <strong>локально на устройстве</strong>. Никакие данные уведомлений не уходят с устройства.</li>
   <li><strong>Опциональные подписки</strong> — когда платные функции включены, RevenueCat
@@ -151,11 +170,26 @@ question, contact us at: <strong>dravexllcgroup@gmail.com</strong>.</p>
       операции и чеки в RevenueCat не передаются.</li>
 </ul>
 
+<h3>Опциональная Google Analytics (с версии 1.0.1)</h3>
+<p>Google Analytics for Firebase выключена по умолчанию и включается отдельным
+согласием в Настройки → Данные. Локальные счётчики её не включают. После согласия
+Google получает заранее определённые действия в приложении и с подпиской,
+технические сведения о приложении и устройстве, приблизительное местоположение
+на основе сетевых данных и псевдонимный идентификатор установки. Эти сведения
+доступны нам в отчётах. Журнал, суммы операций, названия счетов и категорий,
+заметки, файлы, email и исходный Google ID в Analytics не передаются.
+Рекламные идентификаторы и персонализация рекламы отключены. Активация доступа
+и восстановление подписки не записываются как оплаченная выручка. При согласии на аналитику идентификатор установки Firebase также передаётся RevenueCat для сопоставления событий жизненного цикла подписки с аналитикой приложения. Выключение аналитики убирает эту связь для будущих событий.</p>
+<p>Выключение прекращает сбор и сбрасывает локальный идентификатор аналитики,
+но не удаляет ранее отправленные отчёты. Ранее собранные сведения хранятся согласно настройкам срока хранения Google Analytics; агрегированные отчёты могут храниться дольше.
+Применяется <a href="https://policies.google.com/privacy">политика Google</a>.
+По вопросам конфиденциальности можно обратиться по адресу выше.</p>
+
 <h2>3. Чего мы НЕ делаем</h2>
 <ul>
   <li>Не держим бэкенд, который хранит твои финансовые данные.</li>
   <li>Не продаём и не сдаём твои данные.</li>
-  <li>Не встраиваем рекламу и SDK поведенческого трекинга.</li>
+  <li>Не показываем стороннюю рекламу и не используем персонализированную рекламу. Опциональная аналитика описана выше.</li>
 </ul>
 
 <h2>4. Сторонние сервисы</h2>
@@ -173,16 +207,16 @@ question, contact us at: <strong>dravexllcgroup@gmail.com</strong>.</p>
 
 <h2>5. Разрешения</h2>
 <ul>
-  <li><strong>Интернет</strong> — опциональный бэкап в Drive, покупки и опциональный вызов Anthropic.</li>
+  <li><strong>Интернет</strong> — опциональный бэкап в Drive, покупки, опциональный вызов Anthropic и Google Analytics после включения.</li>
   <li><strong>Уведомления</strong> — чтобы слать напоминания, которые ты включил.</li>
   <li><strong>Google Drive (app data scope)</strong> — доступ только к собственной скрытой папке приложения.</li>
 </ul>
 
 <h2>6. Удаление данных</h2>
 <ul>
-  <li>Удаление приложения стирает все локальные данные с устройства.</li>
+  <li>Настройки → Данные → Удалить все локальные данные очищает журнал, вложения, локальные копии восстановления, ключи и настройки, а также отключает Google. Результат удаления самого приложения может зависеть от резервного копирования операционной системы.</li>
   <li>Отключить Google Drive можно в любой момент: Настройки → Google Drive.</li>
-  <li>Бэкап можно удалить из своего Google Drive или отозвать доступ приложения на
+  <li>В Настройки → Данные есть отдельное действие с подтверждением для удаления всех копий приложения в подключённом Google Drive. Локальная очистка не удаляет облачные копии и не отменяет подписку магазина. Также можно отозвать доступ приложения на
       <a href="https://myaccount.google.com/permissions">myaccount.google.com/permissions</a>.</li>
   <li>У нас нет серверов, которые хранят твой финансовый журнал. Если подписки включены,
       удалить псевдонимную запись пользователя RevenueCat можно по запросу на
